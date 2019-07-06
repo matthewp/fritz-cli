@@ -31,6 +31,11 @@ const cli = meow(`
 let command = cli.input[0];
 
 switch(command) {
+  case 'dev': {
+    const dev = require('../lib/dev.js');
+    dev(cli.flags).catch(logErrorAndExit);
+    break;
+  }
   case 'build': {
     let server = cli.flags.server;
     let client = cli.flags.client;
@@ -40,8 +45,16 @@ switch(command) {
       return;
     }
 
-    const buildServer = require('../lib/build-server.js');
-    buildServer(cli.flags).catch(logErrorAndExit);
+    let p;
+    if(server) {
+      const buildServer = require('../lib/build-server.js');
+      p = buildServer(cli.flags);
+    } else {
+      const buildClient = require('../lib/build-client.js');
+      p = buildClient(cli.flags);
+    }
+
+    p.catch(logErrorAndExit);
     break;
   }
   case 'prerender': {
