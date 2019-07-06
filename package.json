@@ -1,0 +1,32 @@
+{
+  "name": "fritz-cli",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "bin": {
+    "fritz": "bin/fritz.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewp/fritz-cli.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/matthewp/fritz-cli/issues"
+  },
+  "homepage": "https://github.com/matthewp/fritz-cli#readme",
+  "dependencies": {
+    "meow": "^5.0.0",
+    "mkdirp": "^0.5.1",
+    "require-relative": "^0.8.7",
+    "strip-indent": "^3.0.0"
+  }
+}
